@@ -79,4 +79,3 @@ jobs:
             push: true
             tags: |
               ${{ secrets.DOCKER_USERNAME }}/devops_tp_ingc1:latest
-              ${{ secrets.DOCKER_USERNAME }}/devops_tp_ingc1:${{ github.sha }}
