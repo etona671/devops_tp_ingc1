@@ -11,7 +11,7 @@ on:
 jobs:
   
     test-code:
-      runs-on: ubuntu-latest
+      runs-on: [self-hosted, Linux, X64]
 
       steps:
         - name: Checout code
