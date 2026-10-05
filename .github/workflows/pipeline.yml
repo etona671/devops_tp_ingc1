@@ -15,15 +15,19 @@ jobs:
 
       steps:
         - name: Checout code
-          uses: actions/checkout@v6
+          uses: actions/checkout@v4
 
         - name: Setup python
-          uses: actions/setup-python@v7
+          uses: actions/setup-python@v5
           with:
-            python-version: '3.13' 
+            python-version: '3.12' 
 
         - name: Installer les dépendances
-          run:  pip install -r requirements.txt
+          run: |
+            python -m pip install --upgrade pip   
+            pip install -r requirements.txt
 
         - name: Exécuter les tests
-          run: pytest -q 
+          env:
+            METRICS_ENDPOINT: .
+          run: pytest app/tests/ -q 
